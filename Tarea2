@@ -1,0 +1,60 @@
+package proyecto1;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class signos {
+	
+	public static void main(String[] args)
+
+	{
+		String patron = ("([0-9]+)|([-|+])|([/|*])|(while|for|string|void)|([a-z]+) |([A-Z]+)");
+		
+		String texto = "5662 +256 */ for while B";
+		Pattern p =Pattern.compile(patron);
+		Matcher matcher = p.matcher(texto);
+		System.out.println("compiladores * prueba analisis lexico");
+		
+		while(matcher.find())
+		{
+			String tokenTipo1 = matcher.group(1);
+			if(tokenTipo1 !=null)
+			{
+				System.out.println("numero: "+ tokenTipo1);
+			}
+			
+			String tokenTipo2 = matcher.group(2);
+			if(tokenTipo2 != null)
+			{
+				System.out.println("suma o resta: " + tokenTipo2);
+				
+			}
+			
+			String tokenTipo3 = matcher.group(3);
+			if(tokenTipo3 != null)
+			{
+				System.out.println("multiplicacion o Divicion: " + tokenTipo3);
+				
+			}
+			String tokenTipo4 = matcher.group(4);
+			if(tokenTipo4 != null)
+			{
+				System.out.println("palabra reservada: " + tokenTipo4);
+				
+			}
+			String tokenTipo5 = matcher.group(5);
+			if(tokenTipo5 != null)
+			{
+				System.out.println("variables: " + tokenTipo5);
+				
+			}
+			String tokenTipo6 = matcher.group(6);
+			if(tokenTipo6 != null)
+			{
+				System.out.println("variables: " + tokenTipo6);
+				
+			}
+		}
+		
+		}
+	}
